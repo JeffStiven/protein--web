@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>+PROTEIN | Comida Saludable & Proteica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Paleta: blanco, café y negro
+                        protein: {
+                            50: '#FBF7F5',    // muy claro
+                            100: '#F3ECE8',   // claro
+                            500: '#6B3E2E',   // café principal
+                            600: '#593327',   // café oscuro
+                            700: '#4A2B20',   // café más oscuro
+                            900: '#000000',   // negro
+                        },
+                        accent: {
+                            500: '#6B3E2E', // usar café como acento
+                            600: '#4A2B20',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans text-black scroll-smooth">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo (icon removed) -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="text-2xl font-bold text-black tracking-tight">+<span class="text-protein-600">PROTEIN</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-protein-600 font-medium transition-colors">Inicio</a>
+                    <a href="#menu" class="text-gray-700 hover:text-protein-600 font-medium transition-colors">Menú</a>
+                    <a href="#beneficios" class="text-gray-700 hover:text-protein-600 font-medium transition-colors">Beneficios</a>
+                    <a href="#nosotros" class="text-gray-700 hover:text-protein-600 font-medium transition-colors">Nosotros</a>
+                    <a href="#contacto" class="bg-protein-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-protein-700 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        Ordenar Ahora
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-protein-600 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#inicio" class="block px-3 py-2 text-gray-700 hover:text-protein-600 hover:bg-protein-50 rounded-md font-medium">Inicio</a>
+                <a href="#menu" class="block px-3 py-2 text-gray-700 hover:text-protein-600 hover:bg-protein-50 rounded-md font-medium">Menú</a>
+                <a href="#nosotros" class="block px-3 py-2 text-gray-700 hover:text-protein-600 hover:bg-protein-50 rounded-md font-medium">Nosotros</a>
+                <a href="#beneficios" class="block px-3 py-2 text-gray-700 hover:text-protein-600 hover:bg-protein-50 rounded-md font-medium">Beneficios</a>
+                        <a href="#contacto" class="w-full mt-4 bg-protein-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-protein-700 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            Ordenar Ahora
+                        </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-gradient-to-br from-protein-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md mb-6 border border-protein-100">
+                        <span class="flex h-2 w-2 rounded-full bg-protein-500"></span>
+                        <span class="text-sm font-semibold text-protein-700">Comida 100% Natural</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-black leading-tight mb-6">
+                        Alimenta tu cuerpo con <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-protein-600 to-accent-500">+PROTEIN</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-lg">
+                        Descubre el poder de la nutrición real. Comidas preparadas con ingredientes frescos, altas en proteínas y diseñadas para potenciar tu rendimiento.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#menu" class="bg-protein-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-protein-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                            Ver Menú
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#nosotros" class="bg-white text-black border-2 border-gray-200 px-8 py-4 rounded-full font-bold text-lg hover:border-protein-600 hover:text-protein-600 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="play-circle" class="w-5 h-5"></i>
+                            Conócenos
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-200">
+                        <div>
+                            <p class="text-3xl font-bold text-black">50+</p>
+                            <p class="text-sm text-gray-600 mt-1">Opciones Saludables</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-black">30g+</p>
+                            <p class="text-sm text-gray-600 mt-1">Proteína por Plato</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-black">0</p>
+                            <p class="text-sm text-gray-600 mt-1">Ingredientes Artificiales</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative lg:h-[600px] flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-r from-protein-200 to-accent-200 rounded-full opacity-20 blur-3xl transform scale-150"></div>
+                    <img src="image/presentacion.png" alt="Presentación" class="relative rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 object-cover w-full h-full max-w-lg">
+                    
+                    <!-- Floating Cards -->
+                    <div class="absolute -left-4 top-20 bg-white p-4 rounded-2xl shadow-xl animate-bounce" style="animation-duration: 3s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-100 p-2 rounded-lg">
+                                <i data-lucide="leaf" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-black">100% Saludable</p>
+                                <p class="text-xs text-gray-500"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -right-4 bottom-20 bg-white p-4 rounded-2xl shadow-xl animate-bounce" style="animation-duration: 3.5s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-orange-100 p-2 rounded-lg">
+                                <i data-lucide="flame" class="w-6 h-6 text-orange-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-black">Alto Rendimiento</p>
+                                <p class="text-xs text-gray-500">Energía real</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="menu" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-black mb-4">Nuestro Menú Proteico</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Elige entre nuestras deliciosas opciones diseñadas para nutrir tu cuerpo y deleitar tu paladar.</p>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="filterMenu('all')" class="category-btn active bg-protein-600 text-white px-6 py-2 rounded-full font-medium transition-all hover:shadow-lg" data-category="all">Todos</button>
+                <button onclick="filterMenu('bowls')" class="category-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium transition-all hover:bg-protein-100 hover:text-protein-700" data-category="bowls">Bowls</button>
+                <button onclick="filterMenu('wraps')" class="category-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium transition-all hover:bg-protein-100 hover:text-protein-700" data-category="wraps">Wraps</button>
+                <button onclick="filterMenu('smoothies')" class="category-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium transition-all hover:bg-protein-100 hover:text-protein-700" data-category="smoothies">Smoothies</button>
+                <button onclick="filterMenu('snacks')" class="category-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium transition-all hover:bg-protein-100 hover:text-protein-700" data-category="snacks">Snacks</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="menu-grid">
+                <!-- Bowl 1 -->
+                <div class="menu-item bowls hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/101" alt="Power Bowl" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">35g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Power Chicken Bowl</h3>
+                        <p class="text-gray-600 text-sm mb-4">Pollo grillado, quinoa, aguacate, vegetales frescos y aderezo tahini.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$12.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bowl 2 -->
+                <div class="menu-item bowls hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/102" alt="Salmon Bowl" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">42g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Omega Salmon Bowl</h3>
+                        <p class="text-gray-600 text-sm mb-4">Salmón fresco, arroz integral, edamame, aguacate y salsa de soya baja en sodio.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$15.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wrap -->
+                <div class="menu-item wraps hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/103" alt="Protein Wrap" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">28g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Turkey Protein Wrap</h3>
+                        <p class="text-gray-600 text-sm mb-4">Pavo, espinaca, tomate, hummus y pepino en tortilla integral.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$9.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smoothie -->
+                <div class="menu-item smoothies hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/104" alt="Green Protein" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">25g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Green Machine</h3>
+                        <p class="text-gray-600 text-sm mb-4">Espinaca, plátano, proteína whey, almendras y leche de avena.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$8.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snack -->
+                <div class="menu-item snacks hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/105" alt="Energy Balls" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">12g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Protein Energy Balls</h3>
+                        <p class="text-gray-600 text-sm mb-4">Dátiles, avena, proteína de chícharo y cacao negro. Pack de 3.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$6.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Another Bowl -->
+                <div class="menu-item bowls hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/106" alt="Buddha Bowl" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">22g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Buddha Veggie Bowl</h3>
+                        <p class="text-gray-600 text-sm mb-4">Garbanzos, tofu grillado, vegetales asados y aderezo de cúrcuma.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$11.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Another Wrap -->
+                <div class="menu-item wraps hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/107" alt="Steak Wrap" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">32g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Steak Fajita Wrap</h3>
+                        <p class="text-gray-600 text-sm mb-4">Res magra, pimientos, cebolla, guacamole en tortilla de espinaca.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$13.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Another Smoothie -->
+                <div class="menu-item smoothies hover-lift bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="http://static.photos/food/640x360/108" alt="Berry Blast" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="text-sm font-bold text-protein-600">30g Prot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-black mb-2">Berry Blast Pro</h3>
+                        <p class="text-gray-600 text-sm mb-4">Mix de berries, yogur griego, proteína y miel natural.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-black">$9.99</span>
+                            <button class="bg-protein-100 text-protein-700 p-3 rounded-full hover:bg-protein-600 hover:text-white transition-colors">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-black/90 transition-all inline-flex items-center gap-2">
+                    Ver Menú Completo
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="py-20 bg-gradient-to-b from-white to-protein-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-black mb-4">¿Por qué elegir +PROTEIN?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Más que comida, es un estilo de vida saludable diseñado para maximizar tu potencial.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-protein-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="heart-pulse" class="w-7 h-7 text-protein-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-3">Nutrición Balanceada</h3>
+                    <p class="text-gray-600">Cada plato está cuidadosamente calculado para proporcionar la proporción perfecta de proteínas, carbohidratos y grasas saludables.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-accent-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="flame" class="w-7 h-7 text-accent-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-3">Alto Contenido Proteico</h3>
+                    <p class="text-gray-600">Desde 20g hasta 45g de proteína de alta calidad por porción, ideal para construcción muscular y recuperación.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-blue-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="leaf" class="w-7 h-7 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-3">Ingredientes Frescos</h3>
+                    <p class="text-gray-600">Trabajamos con proveedores locales para garantizar la frescura y calidad de cada ingrediente que utilizamos.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-purple-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="clock" class="w-7 h-7 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-3">Preparación Rápida</h3>
+                    <p class="text-gray-600">Tu comida lista en minutos. Perfecto para tu rutina ocupada sin sacrificar la nutrición.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-yellow-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="badge-check" class="w-7 h-7 text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-3">Sin Aditivos</h3>
+                    <p class="text-gray-600">0 conservadores artificiales, 0 colorantes, 0 sabores artificiales. Solo comida real.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-red-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="target" class="w-7 h-7 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-3">Objetivos Claros</h3>
+                    <p class="text-gray-600">Ya sea que busques perder grasa, ganar músculo o mantenerte saludable, tenemos opciones para tu meta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-protein-200 rounded-full opacity-30 blur-2xl"></div>
+                    <img src="http://static.photos/restaurant/640x360/200" alt="Nuestro equipo" class="relative rounded-3xl shadow-2xl w-full object-cover h-[500px]">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="flex -space-x-2">
+                                <img src="https://www.gravatar.com/avatar/?d=mp&s=200" class="w-10 h-10 rounded-full border-2 border-white" alt="Cliente">
+                                <img src="https://www.gravatar.com/avatar/?d=mp&s=200" class="w-10 h-10 rounded-full border-2 border-white" alt="Cliente">
+                                <img src="https://www.gravatar.com/avatar/?d=mp&s=200" class="w-10 h-10 rounded-full border-2 border-white" alt="Cliente">
+                            </div>
+                            <div class="text-sm">
+                                <p class="font-bold text-black">1000+</p>
+                                <p class="text-gray-500">Clientes felices</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-1">
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl font-bold text-black mb-6">Nuestra Historia</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        +PROTEIN nació de la necesidad de ofrecer opciones de comida rápida que no comprometan la salud. Fundada en 2020 por entusiastas del fitness y la nutrición, nos hemos dedicado a revolucionar la forma en que las personas ven la comida saludable.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Creemos que comer saludable no debería ser aburrido ni complicado. Por eso cada receta está diseñada para ser deliciosa, nutritiva y accesible para todos, desde atletas profesionales hasta personas que buscan mejorar sus hábitos alimenticios.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-protein-100 p-2 rounded-lg mt-1">
+                                <i data-lucide="check" class="w-5 h-5 text-protein-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-black">Calidad Premium</h4>
+                                <p class="text-sm text-gray-600">Ingredientes seleccionados cuidadosamente</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-protein-100 p-2 rounded-lg mt-1">
+                                <i data-lucide="check" class="w-5 h-5 text-protein-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-black">Sostenibilidad</h4>
+                                <p class="text-sm text-gray-600">Empaques eco-friendly y sourcing responsable</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-protein-100 p-2 rounded-lg mt-1">
+                                <i data-lucide="check" class="w-5 h-5 text-protein-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-black">Transparencia</h4>
+                                <p class="text-sm text-gray-600">Información nutricional completa siempre</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-protein-100 p-2 rounded-lg mt-1">
+                                <i data-lucide="check" class="w-5 h-5 text-protein-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-black">Comunidad</h4>
+                                <p class="text-sm text-gray-600">Apoyo en tu viaje de salud y fitness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-protein-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-protein-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Lo que dicen nuestros clientes</h2>
+                <p class="text-xl text-protein-100">Transformaciones reales gracias a la nutrición adecuada</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"Un excelente lugar para comer saludable, tienen unos deliciosos postres para disfrutar después de entrenar y las hamburguesas fit son lo mejor!!
+Muy recomendado"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://www.gravatar.com/avatar/?d=mp&s=200" alt="Sin foto" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold">Tito Loor</p>
+                            <p class="text-sm text-protein-200"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"Un excelente lugar para poder compartir con amigos familia, un ambiente amigable y sobretodo cada producto muy exquisito, me encantó las galletas de almendra Y la Variedad de postre que tiene, y sobre todo, sin culpa alguna, para los que hacemos dieta"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://www.gravatar.com/avatar/?d=mp&s=200" alt="Sin foto" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold">Anderson RC</p>
+                            <p class="text-sm text-protein-200"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"Me encantan sus batidos de proteína tuve la oportunidad de conocerlos y no saben lo rico que es cada uno de sus productos 😊"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://www.gravatar.com/avatar/?d=mp&s=200" alt="Sin foto" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold">Merly Trávez</p>
+                            <p class="text-sm text-protein-200"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-protein-600 to-protein-700 rounded-3xl p-12 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent-500 opacity-20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6">¿Listo para transformar tu alimentación?</h2>
+                    <p class="text-xl text-protein-100 mb-8 max-w-2xl mx-auto">Únete a miles de personas que ya descubrieron el poder de comer proteico y saludable. Tu primera orden incluye envío gratis.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        </button>
+                        <a href="https://maps.app.goo.gl/oK3eCf22wV63KUd68" target="_blank" rel="noopener noreferrer" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            Ver Ubicación
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-black text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="text-xl font-bold">+<span class="text-white">PROTEIN</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Comida saludable alta en proteínas diseñada para potenciar tu vida. Fresca, deliciosa y nutritiva.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/mas_protein_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="bg-gray-800 p-3 rounded-full hover:bg-protein-600 transition-colors" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61562813726071" class="bg-gray-800 p-3 rounded-full hover:bg-protein-600 transition-colors" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <!-- TikTok: imagen dentro de un círculo (match con otros iconos) -->
+                        <a href="https://www.tiktok.com/@masprotein.sto?_r=1&_t=ZS-945IAU8PB5u" class="bg-gray-800 p-3 rounded-full hover:bg-protein-600 transition-colors flex items-center justify-center" aria-label="TikTok">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/492/small_2x/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png" alt="TikTok" class="w-5 h-5 object-contain">
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#menu" class="hover:text-protein-500 transition-colors">Nuestro Menú</a></li>
+                        <li><a href="https://maps.app.goo.gl/oK3eCf22wV63KUd68" class="hover:text-protein-500 transition-colors">Ubicacion</a></li>
+                        <li><a href="#nosotros" class="hover:text-protein-500 transition-colors">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Soporte</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-protein-500 transition-colors">Preguntas Frecuentes</a></li>
+                        <li><a href="#" class="hover:text-protein-500 transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-protein-500 transition-colors">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contacto</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-protein-500 mt-1"></i>
+                            <span>Av. Quevedo Km 3.5, Santo Domingo 230206</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-protein-500"></i>
+                            <span>+593 986372215</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-protein-500"></i>
+                            <span>masprotein17@gmail.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-protein-500"></i>
+                            <span>Lun - Dom: 8:00 - 21:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2024 +PROTEIN. Todos los derechos reservados.</p>
+                <p class="text-gray-500 text-sm">Hecho con <i data-lucide="heart" class="w-4 h-4 inline text-red-500 fill-red-500"></i> para tu salud</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filter Menu Functionality
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // Update button states
+            buttons.forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.classList.remove('bg-gray-100', 'text-gray-700');
+                    btn.classList.add('bg-protein-600', 'text-white');
+                } else {
+                    btn.classList.remove('bg-protein-600', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-700');
+                }
+            });
+
+            // Filter items with animation
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    item.classList.add('fade-in');
+                    setTimeout(() => item.classList.remove('fade-in'), 500);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
